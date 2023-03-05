@@ -1,6 +1,6 @@
 import express from "express";
 import authControllers from "../controllers/auth.js";
-import entityControllers from "../controllers/entity.js";
+import entityModelControllers from "../controllers/entityModel.js";
 import {
   GENERIC_NAME_TO_DATA_TYPE,
   ENTITY_MODEL_CLAUSES,
@@ -11,11 +11,11 @@ import {
 const router = express.Router();
 
 router.route("/")
-  .get(authControllers.authenticateUserAndPassId, entityControllers.getEntityModels)
+  .get(authControllers.authenticateUserAndPassId, entityModelControllers.getEntityModels)
   .post(
     authControllers.authenticateUserAndPassId,
     validateSchemaObject,
-    entityControllers.addEntityModel
+    entityModelControllers.addEntityModel
   );
 
 router.route("/data-types")
