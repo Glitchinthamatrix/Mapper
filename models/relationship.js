@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
 
-const relationship = new Schema({
+export const relationship = new Schema({
   label: {
     type: String,
     required: true,
