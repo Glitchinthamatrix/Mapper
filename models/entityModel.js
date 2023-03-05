@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { relationship } from "./relationship.js";
 
 const { Schema } = mongoose;
 
@@ -11,9 +12,7 @@ const model = new Schema({
   },
   properties: {},
   // store relationships as {<label>: [<entity-id>, <entity-id>]}
-  relationships: {
-    type: [ { label: String, with: mongoose.Types.ObjectId } ]
-  }
+  relationships: { type: [ relationship ] },
 }, { minimize: false });
 
 export default mongoose.model("Model", model);
