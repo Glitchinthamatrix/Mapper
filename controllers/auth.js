@@ -24,10 +24,6 @@ export default {
         res.status(422).json({ password: [ "Incorrect password" ] });
         return;
       }
-      if (sessionStore.sessionExists(userId)){
-        res.status(400).json({});
-        return;
-      }
       const token = getSessionTokenFromUserId(userId);
       // Reset session with every login request or block login requests
       // if a (not expired) session already exists
