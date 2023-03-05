@@ -24,7 +24,7 @@ export default {
   async addEntityModel(req, res) {
     try {
       const model = await EntityModel.create(
-        { creator: res.locals.user.id, ...req.body, relationships: {} }
+        { creator: res.locals.user.id, ...req.body }
       );
       const user = await User.findOne({ _id: res.locals.user.id });
       user.entityModels.push(model._id.toString());
