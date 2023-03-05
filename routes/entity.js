@@ -7,4 +7,7 @@ const router = express.Router();
 router.route("/")
   .get(authControllers.authenticateUserAndPassId, entityControllers.getEntities);
 
+router.route("/:modelId")
+  .post(authControllers.authenticateUserAndPassId, entityControllers.addEntity);
+
 export default router;

@@ -31,8 +31,9 @@ app.use((req, _, next) => {
 });
 
 app.use("/auth", authRoutes);
-app.use("/entities", entityRoutes);
+// TODO: fix the order of routes
 app.use("/entities/models", entityModelRoutes);
+app.use("/entities", entityRoutes);
 app.use("/users", userRoutes);
 
 (async() => {

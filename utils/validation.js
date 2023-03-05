@@ -106,7 +106,7 @@ export async function schemaEnforcer({ Model, next, properties, req, res }) {
   }
 }
 
-async function _schemaEnforcer(
+export async function _schemaEnforcer(
   { Collection, errors, prefix = "", properties, requestBody }
 ) {
   // Check for unknown fields
