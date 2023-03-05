@@ -2,7 +2,7 @@ import express from "express";
 import authControllers from "../controllers/auth.js";
 import entityControllers from "../controllers/entity.js";
 import {
-  DATA_TYPES_TO_GENERIC_NAMES,
+  GENERIC_NAME_TO_DATA_TYPE,
   ENTITY_MODEL_CLAUSES,
   REGEX_PATTERNS_FOR_CLIENT,
   validateSchemaObject
@@ -20,7 +20,7 @@ router.route("/")
 
 router.route("/data-types")
   .get(authControllers.authenticateUserAndPassId,
-    (_, res) => res.status(200).json(DATA_TYPES_TO_GENERIC_NAMES)
+    (_, res) => res.status(200).json(GENERIC_NAME_TO_DATA_TYPE)
   );
 
 router.route("/clauses")

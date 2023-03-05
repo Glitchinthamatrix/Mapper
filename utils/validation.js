@@ -41,7 +41,7 @@ export const types = {
   string: TYPE_STRING,
 };
 
-export const DATA_TYPES_TO_GENERIC_NAMES = {
+export const GENERIC_NAME_TO_DATA_TYPE = {
   "Text": TYPE_STRING,
   "Number": TYPE_NUMBER,
   "ID": TYPE_MONGOOSE_ID,
