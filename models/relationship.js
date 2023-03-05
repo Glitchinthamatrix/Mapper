@@ -12,6 +12,6 @@ export const relationship = new Schema({
     required: true,
   },
   description: String,
-});
+}, { timestamps: true });
 
 export default mongoose.model("Relationship", relationship);

@@ -13,6 +13,6 @@ const model = new Schema({
   properties: {},
   // store relationships as {<label>: [<entity-id>, <entity-id>]}
   defaultRelationships: { type: [ relationship ] },
-}, { minimize: false });
+}, { minimize: false, timestamps: true });
 
 export default mongoose.model("Model", model);

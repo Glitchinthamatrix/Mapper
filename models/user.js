@@ -25,6 +25,6 @@ const user = new Schema({
   },
   entities: { type: [ Schema.Types.ObjectId ], default: [] },
   definedRelationships: { type: [ String ], default: [] },
-});
+}, { timestamps: true });
 
 export default mongoose.model("User", user);
