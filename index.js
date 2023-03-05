@@ -4,6 +4,7 @@ import express from "express";
 import mongoose from "mongoose";
 import authRoutes from "./routes/auth.js";
 import entityRoutes from "./routes/entity.js";
+import entityModelRoutes from "./routes/entityModel.js";
 import userRoutes from "./routes/user.js";
 import { nullifyPseudoNull } from "./utils/validation.js";
 
@@ -31,6 +32,7 @@ app.use((req, _, next) => {
 
 app.use("/auth", authRoutes);
 app.use("/entities", entityRoutes);
+app.use("/entities/models", entityModelRoutes);
 app.use("/users", userRoutes);
 
 (async() => {
