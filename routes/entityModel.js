@@ -18,9 +18,6 @@ router.route("/")
     entityModelControllers.addEntityModel
   );
 
-router.route("/:modelId")
-  .get(authControllers.authenticateUserAndPassId, entityModelControllers.getEntityModel);
-
 router.route("/data-types")
   .get(authControllers.authenticateUserAndPassId,
     (_, res) => res.status(200).json(GENERIC_NAME_TO_DATA_TYPE)
@@ -37,4 +34,8 @@ router.route("/regex-patterns")
       res.status(200).json(REGEX_PATTERNS_FOR_CLIENT);
     }
   );
+
+router.route("/:modelId")
+  .get(authControllers.authenticateUserAndPassId, entityModelControllers.getEntityModel);
+
 export default router;
