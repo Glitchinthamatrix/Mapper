@@ -54,8 +54,7 @@ export default {
         }
       }
       if (isAuthorized){
-        res.locals.user = {};
-        res.locals.user.id = userObject.userId;
+        res.locals.user = { id: userObject.userId };
         next();
       } else {
         res.status(401).json({ message:  MESSAGE_UNAUTHORIZED });
