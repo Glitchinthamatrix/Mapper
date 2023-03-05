@@ -94,7 +94,7 @@ export async function schemaEnforcer({ Model, next, properties, req, res }) {
   try {
     const errors = {};
     await _schemaEnforcer(
-      { properties: properties, requestBody: req.body, errors: errors, Model: Model }
+      { properties: properties, requestBody: req.body, errors: errors, Collection: Model }
     );
     if (Object.keys(errors).length === 0){
       next();
@@ -107,7 +107,7 @@ export async function schemaEnforcer({ Model, next, properties, req, res }) {
 }
 
 async function _schemaEnforcer(
-  { Model, errors, prefix = "", properties, requestBody }
+  { Collection, errors, prefix = "", properties, requestBody }
 ) {
   // Check for unknown fields
   setUnknownFieldErrors(properties, requestBody, errors);
@@ -131,7 +131,7 @@ async function _schemaEnforcer(
         properties: properties[propertyName],
         requestBody: requestBody[propertyName],
         errors : errors,
-        Model: Model,
+        Collection: Collection,
         prefix: fullFieldName,
       });
     } else {
@@ -154,7 +154,7 @@ async function _schemaEnforcer(
         }
       }
       if (propertyContraints.unique && getFieldValue(errors, fullFieldName) === undefined) {
-        const exists = await Model.exists({
+        const exists = await Collection.exists({
           [fullFieldName]: requestBody[propertyName]
         });
         if (exists) {
@@ -162,7 +162,7 @@ async function _schemaEnforcer(
         }
       }
       if (propertyContraints.mustExist && getFieldValue(errors, fullFieldName) === undefined) {
-        const exists = await Model.exists({
+        const exists = await Collection.exists({
           [fullFieldName]: requestBody[propertyName]
         });
         if (!exists) {
