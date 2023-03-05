@@ -12,7 +12,7 @@ const model = new Schema({
   },
   properties: {},
   // store relationships as {<label>: [<entity-id>, <entity-id>]}
-  relationships: { type: [ relationship ] },
+  defaultRelationships: { type: [ relationship ] },
 }, { minimize: false });
 
 export default mongoose.model("Model", model);
