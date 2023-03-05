@@ -20,6 +20,7 @@ const user = new Schema({
   // store models as [{id: <model-id>, instances: [<instance/entity id>]}]
   entityModels: {
     type: [ Schema.Types.ObjectId ],
+    ref: "Model",
     default: []
   },
   entities: { type: [ Schema.Types.ObjectId ], default: [] },
